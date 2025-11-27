@@ -45,8 +45,19 @@ export default function Quiz() {
              backdropFilter: 'blur(20px)',
            }}>
 
-        {/* Main White Card Container */}
-        
+        {/* Background Border Box */}
+        <div 
+          style={{
+            position: 'absolute',
+            width: '1600px', 
+            height: '920px', 
+            borderRadius: '54px', 
+            backgroundColor: 'rgba(255, 255, 255, 0.3)',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Main White Card Container */}        
         <motion.div 
           className="relative bg-[#F4FDFF] rounded-[42px] shadow-2xl overflow-hidden"
           initial={{ scale: 0.95, opacity: 0 }}
@@ -56,7 +67,7 @@ export default function Quiz() {
             width: '1542px',
             height: '856px',
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-            border: '4px solid rgba(255, 255, 255, 0.5)', // Added glass border
+            border: '4px solid rgba(255, 255, 255, 0.5)', 
           }}>
           
           {/* Content wrapper */}
@@ -82,14 +93,15 @@ export default function Quiz() {
                     backgroundClip: 'text',
                     color: 'transparent',
                     margin: 0,
+                    fontStyle: 'italic',
                   }}>
                 Test Your Knowledge
               </h1>
               {/* Subtitle added below header */}
-              <p className="text-center text-gray-500 font-medium"
+              <p className="text-center text-gray-800 font-medium"
                  style={{
                    fontSize: '18px',
-                   marginTop: '-20px', // Adjust spacing to be close to the header
+                   marginTop: '-4px', 
                  }}>
                 Answer all your questions to see the result
               </p>
@@ -222,14 +234,14 @@ export default function Quiz() {
                 onClick={handleNext}
                 disabled={!answers[currentQuestion]}
                 style={{
-                  width: currentQuestion === quizData.length - 1 ? 'auto' : '56px', // Auto width for text
+                  width: currentQuestion === quizData.length - 1 ? 'auto' : '56px', 
                   height: '56px',
                   borderRadius: '14px',
                   backgroundColor: '#71C6E2',
                   color: 'white',
-                  fontSize: currentQuestion === quizData.length - 1 ? '18px' : '24px', // Adjust font size for text
+                  fontSize: currentQuestion === quizData.length - 1 ? '18px' : '24px',
                   fontWeight: 600,
-                  padding: currentQuestion === quizData.length - 1 ? '0 24px' : '0', // Add padding for text
+                  padding: currentQuestion === quizData.length - 1 ? '0 24px' : '0',
                   border: 'none',
                   cursor: !answers[currentQuestion] ? 'not-allowed' : 'pointer',
                   opacity: !answers[currentQuestion] ? 0.5 : 1,
@@ -245,7 +257,7 @@ export default function Quiz() {
               </motion.button>
             </div>
 
-            {/* Cat Mascot - Moved INSIDE the container - Visible only on first question */}
+            {/* Cat Mascot */}
             <AnimatePresence>
               {currentQuestion === 0 && (
                 <motion.div 
@@ -255,13 +267,13 @@ export default function Quiz() {
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.3 }}
                 >
-                   <div className="relative" style={{ width: '230px', height: '230px' }}>
+                   <div className="relative" style={{ width: '170px', height: '170px' }}>
                       {/* Speech Bubble */}
                       <motion.div 
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="absolute top-0 left-0 bg-white border-2 border-black rounded-xl px-4 py-2 shadow-lg z-10"
+                        className="absolute -top-12 left-0 bg-white border-4 border-cyan-200 rounded-xl px-4 py-2 shadow-lg z-10"
                         style={{ transform: 'rotate(-5deg)' }}
                       >
                         <p className="font-bold text-base text-gray-800 font-handwriting">Best of Luck!</p>
