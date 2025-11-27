@@ -31,6 +31,18 @@ export default function Result() {
              backdropFilter: 'blur(20px)',
            }}>
 
+        {/* Background Border Box */}
+        <div 
+          style={{
+            position: 'absolute',
+            width: '1600px', 
+            height: '920px', 
+            borderRadius: '54px', 
+            backgroundColor: 'rgba(255, 255, 255, 0.3)',
+            zIndex: 0,
+          }}
+        />
+
         {/* Main White Card Container */}
         <motion.div 
           className="relative bg-[#F4FDFF] rounded-[42px] shadow-2xl overflow-hidden flex flex-col items-center justify-center"
